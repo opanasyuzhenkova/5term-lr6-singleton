@@ -2,17 +2,6 @@ import time
 import requests
 from xml.etree import ElementTree as ET
 
-'''
-Singleton as a Base class
-
-class Singleton(object):
-    _instance = None
-    def __new__(class_, *args, **kwargs):
-        if not isinstance(class_._instance, class_):
-            class_._instance = object.__new__(class_, *args, **kwargs)
-        return class_._instance
-'''
-
 
 class Singleton(type):
     _instances = {}
@@ -32,6 +21,11 @@ class CurrenciesList(metaclass=Singleton):
         print('Creating object of CurrenciesList...')
 
     def get_currencies(self, currencies_ids_lst=None) -> dict:
+        """The function returns a dict-object with exchange rates
+
+        Keyword arguments:
+            currencies_ids_lst --- list of currencies to get the exchange rate
+        """
         t = time.time()
         result = {}
 
